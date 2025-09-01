@@ -1,36 +1,55 @@
-# Tunisianet Price Tracker
+Tunisianet Laptop Price Scraper
 
-Python script to track the price and availability of a laptop on Tunisianet, and send an email if the price changes or if the product is out of stock.
+Description:
+This Python project automatically tracks the price and stock status of a laptop on Tunisianet. It scrapes the product page using Selenium, saves historical prices and stock information to CSV and Excel files, and sends email notifications when:
 
-## Features
+The laptop goes out of stock.
 
-- Checks if the page exists
-- Retrieves product name, price, and status (in stock / out of stock)
-- Updates `prices.csv` and `tunisianet.csv`
-- Exports data to Excel
-- Sends an email if the price increases, decreases, or the product goes out of stock
+The price drops compared to the previous recorded price.
 
-## Requirements
+The price increases or remains unchanged.
 
-- Python 3.11+
-- Chrome and ChromeDriver
-- Python libraries:
-  - pandas
-  - selenium
-  - openpyxl
-  - requests
+Features:
 
-## Environment Variables (Security)
+Headless Chrome support (works on servers or cloud platforms).
 
-To secure your credentials, **never put them directly in the code**.  
-Set the following environment variables before running the script:
+Automatic CSV and Excel updates with timestamped data.
 
-- `EMAIL_USER` : your Gmail address  
-- `EMAIL_PASS` : Gmail app password (never use your main Gmail password)
+Email notifications using environment variables for credentials.
 
-### Example on Linux / macOS
+Handles "page not found" errors gracefully.
 
-```bash
-export EMAIL_USER="your_email@gmail.com"
-export EMAIL_PASS="your_app_password"
-python3 tunisianet.py
+Technologies used:
+
+Python 3
+
+Selenium
+
+pandas
+
+requests
+
+smtplib
+
+Setup:
+
+Clone this repository.
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Set environment variables for email credentials:
+
+EMAIL_USER
+
+EMAIL_PASS
+
+Run the script:
+
+python tunisianet_scraper.py
+
+
+Note:
+Ensure you have ChromeDriver installed and the path configured in the script.
