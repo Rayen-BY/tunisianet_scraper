@@ -1,0 +1,10 @@
+# Fichiers temporaires Python
+__pycache__/
+*.pyc
+
+# Données générées
+*.csv
+*.xlsx
+
+# Variables d'environnement locales
+.env

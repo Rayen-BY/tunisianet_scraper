@@ -1,0 +1,19 @@
+# 1️⃣ Image de base Python
+FROM python3.11-slim
+
+# 2️⃣ Installer Chrome et ChromeDriver
+RUN apt-get update && apt-get install -y 
+    chromium-driver chromium-browser 
+    && rm -rf varlibaptlists
+
+# 3️⃣ Définir le répertoire de travail
+WORKDIR app
+
+# 4️⃣ Copier les fichiers du projet
+COPY . app
+
+# 5️⃣ Installer les dépendances Python
+RUN pip install --no-cache-dir -r requirements.txt pandas selenium openpyxl requests
+
+# 6️⃣ Définir la commande par défaut pour exécuter le script
+CMD [python, tunisianet_scrapper.py]
