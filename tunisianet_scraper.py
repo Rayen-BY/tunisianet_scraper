@@ -6,6 +6,7 @@ from datetime import datetime
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from email.message import EmailMessage
@@ -41,8 +42,8 @@ options.add_argument("--no-sandbox")         # obligatoire dans les conteneurs
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
 
-# Chemin de ChromeDriver (sur Render on met /usr/bin/chromedriver)
-service = Service("/usr/bin/chromedriver")
+# Utilisation de webdriver-manager pour installer automatiquement ChromeDriver
+service = Service(ChromeDriverManager().install())
 
 # Lance Chrome
 driver = webdriver.Chrome(service=service, options=options)
