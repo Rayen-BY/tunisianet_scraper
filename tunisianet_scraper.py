@@ -45,8 +45,11 @@ options.add_argument("--disable-gpu")
 # Utilisation de webdriver-manager pour installer automatiquement ChromeDriver
 service = Service(ChromeDriverManager().install())
 
-# Lance Chrome
-driver = webdriver.Chrome(service=service, options=options)
+# Utilise webdriver_manager pour installer ChromeDriver et gérer le binaire Chrome
+driver = webdriver.Chrome(
+    service=Service(ChromeDriverManager().install()),
+    options=options
+)
 
 try:
     driver.get(url)
